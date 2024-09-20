@@ -26,7 +26,6 @@ local function validate_token(token, conf)
     local httpc = http.new()
     local res, err = httpc:request_uri(conf.validation_endpoint, {
         method = "POST",
-        ssl_verify = conf.ssl_verify,
         headers = {
             ["Content-Type"] = "application/json",
             ["Authorization"] = token
