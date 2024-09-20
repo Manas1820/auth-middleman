@@ -40,7 +40,7 @@ local function validate_token(token, conf)
 end
 
 function GuardHandler:access(conf)
-    local token = kong.request.get_header(conf.token_header) or kong.request.get_cookie("token")
+    local token = kong.request.get_header(conf.token_header)
 
     if not token then
         return send_error_response("Authentication token missing or invalid. Access denied.", 401)
